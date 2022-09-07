@@ -1,0 +1,18 @@
+@-webkit-keyframes animkf {
+    0%     {background-color:black;}
+    50%  {background-color:#55ff55;}
+    100%  {background-color:black;}
+}
+@keyframes animkf {
+    0%     {background-color:black;}
+    50%  {background-color:#55ff55;}
+    100%  {background-color:black;}
+}
+
+.anim {
+	 -webkit-animation: animkf 1s; /* Chrome, Safari, Opera */
+    animation: animkf 1s;
+    animation-fill-mode: forwards;
+
+	/* color: red; */
+}

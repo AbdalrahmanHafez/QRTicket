@@ -1,0 +1,7 @@
+POST http://localhost:8080/verifyPurchase 
+content-type: application/json
+
+{
+	"transaction_id":"oihcrepw8392", 
+	"email":"dahomy999@outlook.sa"
+}

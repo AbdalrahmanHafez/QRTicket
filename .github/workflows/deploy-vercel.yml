@@ -1,0 +1,37 @@
+on:
+  push:
+    branches: [main]
+env:
+  CI: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Install npm Dependencies
+        run: yarn --cwd ./Frontend install
+      - name: Generate ./Frontend/build
+        run: yarn --cwd ./Frontend run build
+      # Share artifact inside workflow
+      # - name: Share artifact inside workflow
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: react-github-actions-build
+      #     path: Frontend/build
+      - name: Send to Vercel
+        # run: npx vercel --prod -t ${{ secrets.VERCEL_TOKEN }}
+        # this asumes .vercel folder exists
+        uses: amondnet/vercel-action@v25.1.0
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-args: "--prod"
+          working-directory: ./
