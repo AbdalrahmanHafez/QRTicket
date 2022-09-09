@@ -60,7 +60,7 @@ function UserSubmit() {
   return (
     <div
       style={{
-        backgroundImage: "url(/festival.jpg)",
+        backgroundImage: "url(/festival_ai.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         height: "100vh",
@@ -78,7 +78,6 @@ function UserSubmit() {
           borderRadius: "2rem",
           border: "1px solid rgba( 255, 255, 255, 0.18 )",
           backdropFilter: "blur( 12px )",
-          "-webkit-backdrop-filter": "blur( 12px )",
 
           position: "relative",
         }}
@@ -114,7 +113,11 @@ function UserSubmit() {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <h2>Claim your ticket</h2>
                 <FontAwesomeIcon
-                  style={{ marginLeft: "auto", fontSize: "40px" }}
+                  style={{
+                    marginLeft: "auto",
+                    fontSize: "40px",
+                    color: "rgb(255 255 255 / 90%)",
+                  }}
                   icon={faTicket}
                 />
               </div>
