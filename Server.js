@@ -37,7 +37,14 @@ app.get("/", async function (req, res) {
 app.get("/test", async function (req, res) {
   // 3913d5755937594155d763558b75a10f-us12
   // sendMail("alaay0880@gmail.com");
-  sendMail("dahomy999@outlook.sa");
+  // sendMail("dahomy999@outlook.sa");
+
+  // await fs.writeFileSync("./public/test.txt", "hello");
+
+  await fs.writeFileSync(
+    path.join(require("os").tmpdir(), "test.txt"),
+    "hello"
+  );
 
   res.send({ status: "ok" });
 });

@@ -24,7 +24,7 @@ To install the node_modules of both the Backend and Frontend do:
 
 `yarn start`
 
-### Developement setup:
+### Developement setup
 
 - Deployment platform is Vercel.
 - Secrets are in ./.env, And stored in vercel as well.
@@ -32,3 +32,8 @@ To install the node_modules of both the Backend and Frontend do:
 - Github contains Vercel secrets project-id, org-id, account token to be used in the build workflow.
 - Build does not happen in Vercel, but using Github workflows then uploading the build to Vercel.
 - To build and deploy from a local machine use `yarn vercel`.
+
+#### Personal notes
+
+presistant storage providers:
+https://vercel.com/docs/concepts/solutions/databases
