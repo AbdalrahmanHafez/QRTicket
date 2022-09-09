@@ -71,8 +71,16 @@ function UserSubmit() {
       <div
         className="mb-5 col-xs-10 offset-xs-1 col-md-6 offset-md-3"
         style={{
+          // borderRadius: "2rem",
+          // backgroundColor: "rgb(39,10,10,0.85)",
+          background: "rgb(65 8 8 / 69%)",
+          boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
           borderRadius: "2rem",
-          backgroundColor: "rgb(39,10,10,0.85)",
+          border: "1px solid rgba( 255, 255, 255, 0.18 )",
+          backdropFilter: "blur( 12px )",
+          "-webkit-backdrop-filter": "blur( 12px )",
+
+          position: "relative",
         }}
       >
         <div
@@ -98,10 +106,18 @@ function UserSubmit() {
             <Form id="form1" onSubmit={handleSubmit}>
               <br />
               <br />
-              <h2>
-                {"  "} Claim your ticket {"  "}
-                <FontAwesomeIcon icon={faTicket} />
-              </h2>
+
+              {/* <h2>
+                  {"  "} Claim your ticket {"  "}
+                  <FontAwesomeIcon icon={faTicket} />
+                </h2> */}
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <h2>Claim your ticket</h2>
+                <FontAwesomeIcon
+                  style={{ marginLeft: "auto", fontSize: "40px" }}
+                  icon={faTicket}
+                />
+              </div>
 
               <div>
                 <Row className="col-xs-10 offset-xs-1 mt-3">

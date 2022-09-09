@@ -64,7 +64,7 @@ function AdminScan() {
         style={styles.title}
         className="d-flex justify-content-center text-light"
       >
-        QR Scanner 2
+        QR Scanner
       </label>
 
       {/* <img src={`${qrimg}`} alt="" /> */}
@@ -88,12 +88,13 @@ function AdminScan() {
           ? "Loading.."
           : error
           ? error
-          : "Recorded, press continue to scan more."}
+          : "Recorded, press Next to scan more."}
       </div>
 
       <div className="d-flex mb-3">
         <QRScan
           className="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1"
+          style={{ borderRadius: "7px", boxShadow: "0 0 50px 0px white" }}
           // style={styles.qrvideo}
           onResult={useCallback((result) => {
             console.log("[SCAN] ", result);
@@ -117,7 +118,7 @@ function AdminScan() {
                   (error?.response?.data ? error.response.data : error.message);
                 console.log("MSG Is", msg);
                 seterror(msg);
-                alert(msg);
+                // alert(msg);
               })
               .finally(() => {
                 setLoading(false);
@@ -129,7 +130,6 @@ function AdminScan() {
             setQrdata(string);
           }, [])}
         />
-
         <FontAwesomeIcon
           style={{ fontSize: 15, marginLeft: 10 }}
           icon={faUpRightAndDownLeftFromCenter}
@@ -139,16 +139,30 @@ function AdminScan() {
         />
       </div>
 
-      <div className="w-100">
-        <button
-          disabled={firstTime || loading}
-          className="btn btn-primary btn-lg mb-3 col-12 col-lg-6 offset-lg-3"
-          onClick={() => {
-            window.qrscanner.start();
-          }}
-        >
-          CONTINUE
-        </button>
+      <div
+        className="w-100"
+        style={{
+          position: "fixed",
+          bottom: "0",
+          height: "20%",
+          background:
+            "linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+          display: "flex",
+        }}
+      >
+        {!firstTime && (
+          <button
+            // disabled={firstTime || loading}
+            // style={{ position: "fixed", bottom: "0" }}
+            style={{ alignSelf: "end", height: "5rem" }}
+            className="btn btn-primary btn-lg col-12 col-lg-6 offset-lg-3"
+            onClick={() => {
+              window.qrscanner.start();
+            }}
+          >
+            Next
+          </button>
+        )}
       </div>
 
       <h1 style={{ color: "pink" }}>{qrdata}</h1>
@@ -157,7 +171,7 @@ function AdminScan() {
 }
 
 const styles = {
-  container: { height: "100%", width: "100%", backgroundColor: "#eaf9d9" },
+  container: { height: "100%", width: "100%", backgroundColor: "#D9F8F9" },
   title: {
     fontSize: 20,
     backgroundColor: "rgb(13 110 253)",
