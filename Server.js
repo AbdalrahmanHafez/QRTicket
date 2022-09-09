@@ -100,7 +100,7 @@ app.post("/verifyPurchase", async function (req, res) {
   const scanlimit = Math.floor(transaction.payedAmount / TICKET_PRICE);
   // generate QR
   const qrimg = await QRCode.toDataURL(transaction_id);
-  await fs.writeFileSync(path.join(__dirname, "./tmp/hello.txt"), "CONTENT1");
+  // await fs.writeFileSync(path.join(__dirname, "./tmp/hello.txt"), "CONTENT1");
   // await QRCode.toFile(`./public/images/${transaction_id}.png`, transaction_id);
   // console.log(path.join(__dirname, `./tmp/${transaction_id}.png`));
   // await QRCode.toFile(
@@ -134,8 +134,9 @@ app.post("/verifyPurchase", async function (req, res) {
   // "data:image/png;base64,iVBORw0KG...",
 
   // TODO: correct URL
+  // qrimg: `${process.env.VERCEL_URL}/api/getimage/${transaction_id}`,
   const email_data = {
-    qrimg: `${process.env.VERCEL_URL}/api/getimage/${transaction_id}`,
+    qrimg: `https://qrticket.vercel.app/api/getimage/${transaction_id}`,
     date: "25/9/2022",
     location: "someware",
     ticketsCount: 4,
@@ -148,7 +149,8 @@ app.post("/verifyPurchase", async function (req, res) {
     // await sendMail("alaay0880@gmail.com", email_data);
   } catch (error) {
     console.log(
-      `[ERROR] Unable to send email to ${email} while verifiying transaction (${transaction_id})`
+      `[ERROR] Unable to send email to ${email} while verifiying transaction (${transaction_id})`,
+      error
     );
 
     await dbsession.abortTransaction();

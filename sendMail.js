@@ -1,9 +1,13 @@
 const nodemailer = require("nodemailer");
 const Handlebars = require("handlebars");
 const fs = require("fs");
+const path = require("path");
 
 function generateTemplate(email_data) {
-  const source = fs.readFileSync("./mail_template/index.html", "utf-8");
+  const source = fs.readFileSync(
+    path.join(process.cwd(), "./mail_template/index.html"),
+    "utf-8"
+  );
   // console.log("source", source);
   const template = Handlebars.compile(source);
 
