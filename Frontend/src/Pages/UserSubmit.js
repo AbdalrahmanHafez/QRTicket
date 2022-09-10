@@ -68,7 +68,7 @@ function UserSubmit() {
       }}
     >
       {/* <img style={{ position: "absolute", top: 0 }} src="/logo192.png" alt="" /> */}
-      <br /> <br /> <br /> <br /> <br />
+      {/* <br /> <br /> <br /> <br /> <br /> */}
       <div
         className="mb-5 col-xs-10 offset-xs-1 col-md-6 offset-md-3"
         style={{
@@ -81,6 +81,9 @@ function UserSubmit() {
           backdropFilter: "blur( 12px )",
 
           position: "relative",
+
+          top: "50%",
+          transform: "translate(0%, -60%)",
         }}
       >
         <div
