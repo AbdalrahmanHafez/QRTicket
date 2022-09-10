@@ -5,8 +5,10 @@
   "license": "MIT",
   "scripts": {
     "install:all": "yarn install && yarn --cwd ./Frontend install",
-    "start": "nodemon src/index.js",
+    "start": "nodemon index.js --ignore ./Frontend",
     "dev": "concurrently \"yarn run start\" \"yarn --cwd ./Frontend run start\"",
+    "fe": "yarn --cwd ./Frontend run start",
+    "be": "yarn run start",
     "vercel": "yarn --cwd ./Frontend build && vercel --prod",
     "vercel:clean-old-dep": "vercel remove --safe"
   },

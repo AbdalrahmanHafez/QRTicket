@@ -63,6 +63,7 @@ function UserSubmit() {
         backgroundImage: "url(/festival_ai.jpg)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        backgroundPosition: "center",
         height: "100vh",
       }}
     >
